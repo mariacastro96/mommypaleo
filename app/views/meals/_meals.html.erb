@@ -1,0 +1,40 @@
+<% @meals.each do |meal| %>
+  <div class="col-xs-12 col-sm-3">
+    <div class="card">
+      <div class="meal-date text-center">
+        <%= Time.now.strftime('%A, %d-%B') %>
+      </div>
+      <div class="meal-owner text-center">
+        <%= meal.user.email.split('@').first %>
+      </div>
+      <div class="meal-name text-center">
+        <%= meal.name %>
+      </div>
+      <div class="meal-ingredients">
+        <% meal.ingredients.each do |ingredient| %>
+        <% if current_user == meal.user %>
+            <%= link_to ingredient_path(ingredient), method: :delete, data: { confirm: 'Tem a certeza?'} do %>
+                <i class="fa fa-times"></i>
+            <% end %>
+          <% end %>
+          <%= ingredient.name %> - <%= ingredient.portion %> </br >
+        <% end %>
+      </div>
+      <% if current_user == meal.user %>
+        <div class="ingredient-add">
+          <%= link_to new_ingredient_path(meal_id: meal.id) do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </div>
+      <% end %>
+      <% if current_user == meal.user %>
+        <div class="meal-delete">
+          <%= link_to meal_path(meal), method: :delete, data: { confirm: 'Tem a certeza?'} do %>
+            <i class="fa fa-times"></i>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>

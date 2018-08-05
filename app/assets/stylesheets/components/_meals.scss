@@ -1,0 +1,52 @@
+.container {
+  margin-top: 20px;
+}
+
+.card {
+  height: 250px;
+  color: black;
+  position: relative;
+  background-color: white;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px #D0D0D0;
+
+  .meal-owner {
+    text-shadow: 0 0 3px #D0D0D0;
+    border-bottom: 1px solid #D0D0D0;
+    padding-bottom: 5px;
+  }
+
+  .meal-name {
+    padding: 5px;
+  }
+
+  .meal-delete {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+  }
+
+  .meal-date {
+    font-size: 12px;
+    color: #999999;
+  }
+
+  .meal-ingredients {
+
+    i {
+      padding-right: 5px;
+    }
+  }
+}
+
+.ingredient-add {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+
+  i {
+    color: #4EA232;
+  }
+}
